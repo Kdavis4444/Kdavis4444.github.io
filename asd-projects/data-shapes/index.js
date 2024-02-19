@@ -45,16 +45,16 @@ $(document).ready(function () {
   }  
   
   // TODO 2: add a new property to all data shapes
-  for (var i = 0; i > dataShapes.length - 1; i++){
+  for (var i = 0; i < dataShapes.length; i++){
     var currentShape = dataShapes[i]
-    if (currentShape === "red"){
-      dataShapes.color.push("bounce")
+    if (currentShape.color === "red"){
+      currentShape.goodBehavior = "bounce"
     }
-    else if (currentShape === "blue"){
-      dataShapes.color.push("blink")
+    else if (currentShape.color === "blue"){
+      currentShape.goodBehavior = "blink"
     }
     else {
-      return "spin"
+      currentShape.goodBehavior = "spin"
     }
   }
 
@@ -83,20 +83,20 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    dataShapes = currentShape
+    currentShape = dataShapes[currentIndex]
     handleStatic(currentShape)
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    currentShape = "square", "triangle", "circle"
-    handleGood(colors, shapes, repeats)
+    currentShape = dataShapes[currentIndex]
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    currentShape =  "square", "triangle", "circle"
-    repeat = (repeats)
+    currentShape = dataShapes[currentIndex]
+    repeat = currentShape.repeat
     handleBad(currentShape, repeat)
   }
 
