@@ -3,8 +3,6 @@
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
   
 function runProgram(){
-  ($(document).on('keydown', handleKeyDown))
-  ($(document).on('keyup', handleKeyUp))
   const KEY = {
     "ENTER": 13,
     "Left": 37,
@@ -29,7 +27,8 @@ function runProgram(){
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  ($(document).on('keydown', handleKeyDown))
+  ($(document).on('keyup', handleKeyUp))                         // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
