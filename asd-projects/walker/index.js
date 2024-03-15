@@ -3,8 +3,7 @@
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
   
 function runProgram(){
-  const KEY = {
-    "ENTER": 13,
+  var KEY = {
     "Left": 37,
     "Right": 39,
    " Up": 38,
@@ -19,37 +18,35 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-  var walker { positionX = 0,
-   positionY = 0,
-   speedX = 0,
-   speedY = 0,
+  var walker = { 
+    positionX: 0,
+    positionY: 0,
+    speedX:0,
+    speedY: 0,
   }
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   ($(document).on('keydown', handleKeyDown))
-  ($(document).on('keyup', handleKeyUp))                         // change 'eventType' to the type of event you want to handle
+                          // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   function handleKeyDown(event){
-    if (event.which === KEY.ENTER) {
-      console.log("enter pressed");
-    }
-    else if (event.which === KEY.Left){
+     if (event.which === KEY.Left){
       console.log("Left arrow pressed")
-      walker.speedX -= 5
+      walker.speedX = -5
     } else if (event.which === KEY.Right){
       console.log("Right arrow pressed")
-      walker.speedX += 5
+      walker.speedX = 5
     } else if (event.which === KEY.Down){
       console.log("Down arrow pressed")
-      walker.speedY -= 5
+      walker.speedY = -5
     } else if (event.which === KEY.Up){
       console.log("Up arrow pressed")
-      walker.speedY += 5
+      walker.speedY = 5
     }
   }
 
@@ -58,12 +55,9 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    var reposition = repositionGameItem()
-    var wall = wallCollision()
-    var redraw = redrawGameItem()
-    var keyup = handleKeyUp()
-    
-
+    repositionGameItem()
+    wallCollision()
+    redrawGameItem()
   }
   
   /* 
