@@ -29,6 +29,7 @@ function runProgram(){
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   ($(document).on('keydown', handleKeyDown))
+  ($(document).on('keyup', handleKeyup))
                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -63,8 +64,19 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
-
+  function handleKeyup(event){
+    if (event.which === KEY.Left){
+      console.log("Left arrow pressed")
+      walker.speedX = 0
+    } else if (event.which === KEY.Right){
+      console.log("Right arrow pressed")
+      walker.speedX = 0
+    } else if (event.which === KEY.Down){
+      console.log("Down arrow pressed")
+      walker.speedY = 0
+    } else if (event.which === KEY.Up){
+      console.log("Up arrow pressed")
+      walker.speedY = 0
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -75,8 +87,8 @@ function runProgram(){
     walker.positionY = walker.positionY + walker.speedY
   }
   function redrawGameItem(){
-    $("#walker").css("left", positionX);
-    $("#walker").css("top", positionY);
+    $("#walker").css("left", walker.positionX);
+    $("#walker").css("top", walker.positionY);
 
   }
   function wallCollision(){
