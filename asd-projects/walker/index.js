@@ -71,17 +71,13 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   function repositionGameItem(){
-    positionX += speedX
-    positionY += speedY
+    walker.positionX = walker.positionX + walker.speedX
+    walker.positionY = walker.positionY + walker.speedY
   }
   function redrawGameItem(){
     $("#walker").css("left", positionX);
     $("#walker").css("top", positionY);
 
-  }
-  function handleKeyUp(){
-    positionX -= speedX
-    positionY -= speedY
   }
   function wallCollision(){
     $("#board").width()
