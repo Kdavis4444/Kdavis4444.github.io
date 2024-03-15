@@ -19,10 +19,11 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-  var positionX = 0;
-  var positionY = 0;
-  var speedX = 0;
-  var speedY = 0;
+  var walker { positionX = 0,
+   positionY = 0,
+   speedX = 0,
+   speedY = 0,
+  }
 
 
   // one-time setup
