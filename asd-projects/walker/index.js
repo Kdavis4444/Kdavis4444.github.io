@@ -6,7 +6,7 @@ function runProgram(){
   var KEY = {
     "Left": 37,
     "Right": 39,
-   " Up": 38,
+   "Up": 38,
     "Down": 40
   }
   ////////////////////////////////////////////////////////////////////////////////
@@ -37,17 +37,13 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   function handleKeyDown(event){
      if (event.which === KEY.Left){
-      console.log("Left arrow pressed")
       walker.speedX = -5
     } else if (event.which === KEY.Right){
-      console.log("Right arrow pressed")
       walker.speedX = 5
     } else if (event.which === KEY.Down){
-      console.log("Down arrow pressed")
-      walker.speedY = -5
-    } else if (event.which === KEY.Up){
-      console.log("Up arrow pressed")
       walker.speedY = 5
+    } else if (event.which === KEY.Up){
+      walker.speedY = -5
     }
   }
 
@@ -66,17 +62,15 @@ function runProgram(){
   */
   function handleKeyup(event){
     if (event.which === KEY.Left){
-      console.log("Left arrow pressed")
       walker.speedX = 0
     } else if (event.which === KEY.Right){
-      console.log("Right arrow pressed")
       walker.speedX = 0
     } else if (event.which === KEY.Down){
-      console.log("Down arrow pressed")
       walker.speedY = 0
     } else if (event.which === KEY.Up){
-      console.log("Up arrow pressed")
       walker.speedY = 0
+
+  }
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -91,12 +85,21 @@ function runProgram(){
     $("#walker").css("top", walker.positionY);
 
   }
-  function wallCollision(){
-    $("#board").width()
-    $("#board").height()
-
+boardWandH = $("#board").width()
+function wallCollision(){
+  if (walker.positionX === 0) {
+    walker.positionX -= walker.speedX
+    }
+  if (walker.positionY === 0) {
+    walker.positionY -= walker.speedY
+    }
+  if (walker.positionX === 390 ) { 
+    walker.positionX -= walker.speedX
+    }
+  if (walker.positionY === 390) { 
+    walker.positionY -= walker.speedY
+    }
   }
-
   
   function endGame() {
     // stop the interval timer
