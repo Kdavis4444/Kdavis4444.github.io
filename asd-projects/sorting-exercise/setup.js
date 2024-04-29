@@ -6,7 +6,7 @@
 // THE CONSTANTS BELOW MAY BE ALTERED FOR EXPERIMENTATION PURPOSES
 
 // set the delay between each sort step
-const SLEEP_AMOUNT = 500;
+const SLEEP_AMOUNT = 200;
 
 // set the max number of squares
 const MAX_SQUARES = 16;
@@ -23,7 +23,7 @@ const INCREASE = 7181930;
 // values related to drawing the sorting grid
 const IMAGE_SIZE = 256;                         // pixels
 const MAX_SQUARE_WIDTH = 25;                    // percentage of width
-const MAX_SQUARE_HEIGHT = 1/MAX_SQUARES*100;    // percentage of height
+const MAX_SQUARE_HEIGHT = 1/MAX_SQUARES*200;    // percentage of height
 
 // define the arrays that will store all created HTML elements
 const bubbleList = [];
